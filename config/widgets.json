@@ -1,0 +1,426 @@
+{
+  "defwidget@terminal": {
+    "display:order": -5,
+    "icon": "square-terminal",
+    "color": "#7c3aed",
+    "label": "shell",
+    "description": "PowerShell session with Wave integration",
+    "blockdef": {
+      "meta": {
+        "view": "term",
+        "controller": "shell",
+        "term:localshellpath": "pwsh.exe",
+        "term:localshellopts": "-NoLogo"
+      }
+    }
+  },
+  "defwidget@files": {
+    "display:order": -4,
+    "icon": "folder-open",
+    "color": "#a855f7",
+    "label": "files",
+    "description": "File explorer with drag-and-drop, column sorting, Quick Look",
+    "blockdef": {
+      "meta": {
+        "view": "preview",
+        "file": "~"
+      }
+    }
+  },
+  "defwidget@web": {
+    "display:order": -3,
+    "icon": "globe",
+    "color": "#3b82f6",
+    "label": "browser",
+    "description": "Built-in web browser",
+    "blockdef": {
+      "meta": {
+        "view": "web",
+        "url": "https://nulled.ai",
+        "pinnedurl": "https://nulled.ai"
+      }
+    }
+  },
+  "defwidget@ai": {
+    "display:order": -2,
+    "icon": "sparkles",
+    "color": "#06b6d4",
+    "label": "ai",
+    "description": "Wave AI chat assistant"
+  },
+  "defwidget@sysinfo": {
+    "display:order": -1,
+    "icon": "chart-area",
+    "color": "#22d3ee",
+    "label": "cpu+mem",
+    "description": "Live CPU and memory graph (2 min history)",
+    "blockdef": {
+      "meta": {
+        "view": "sysinfo",
+        "sysinfo:type": "CPU + Mem",
+        "graph:numpoints": 120
+      }
+    }
+  },
+
+  "cpu-graph": {
+    "display:order": 1,
+    "icon": "microchip",
+    "color": "#f59e0b",
+    "label": "cpu",
+    "description": "Live CPU utilization graph (2 min history)",
+    "blockdef": {
+      "meta": {
+        "view": "sysinfo",
+        "sysinfo:type": "CPU",
+        "graph:numpoints": 120
+      }
+    }
+  },
+  "mem-graph": {
+    "display:order": 2,
+    "icon": "memory",
+    "color": "#8b5cf6",
+    "label": "memory",
+    "description": "Live memory usage graph (2 min history)",
+    "blockdef": {
+      "meta": {
+        "view": "sysinfo",
+        "sysinfo:type": "Mem",
+        "graph:numpoints": 120
+      }
+    }
+  },
+  "all-cpu-graph": {
+    "display:order": 3,
+    "icon": "layer-group",
+    "color": "#f97316",
+    "label": "all-cpu",
+    "description": "Per-core CPU utilization graph — all cores overlaid",
+    "blockdef": {
+      "meta": {
+        "view": "sysinfo",
+        "sysinfo:type": "All CPU",
+        "graph:numpoints": 120
+      }
+    }
+  },
+
+  "btop": {
+    "display:order": 10,
+    "icon": "chart-line",
+    "color": "#2dd4bf",
+    "label": "btop",
+    "description": "Full system monitor — processes, CPU, memory, disk, network",
+    "blockdef": {
+      "meta": {
+        "view": "term",
+        "controller": "cmd",
+        "cmd": "btop",
+        "cmd:shell": true,
+        "cmd:runonstart": true,
+        "cmd:clearonstart": true,
+        "cmd:persistent": true,
+        "cmd:env": { "TERM": "xterm-256color" }
+      }
+    }
+  },
+  "disk-usage": {
+    "display:order": 11,
+    "icon": "hard-drive",
+    "color": "#8b5cf6",
+    "label": "disks",
+    "description": "Disk space usage across all mounted volumes (refreshes every 30s)",
+    "blockdef": {
+      "meta": {
+        "view": "term",
+        "controller": "cmd",
+        "cmd": "pwsh.exe -NoLogo -Command \"while($true){Clear-Host; Write-Host '  DISK USAGE' -ForegroundColor Cyan; Write-Host ('  ' + (Get-Date -Format 'HH:mm:ss')) -ForegroundColor DarkGray; Write-Host ''; Get-Volume | Where-Object {$_.DriveLetter -and $_.Size -gt 0} | Format-Table DriveLetter, FileSystemLabel, @{N='Size(GB)';E={[math]::Round($_.Size/1GB,1)}}, @{N='Free(GB)';E={[math]::Round($_.SizeRemaining/1GB,1)}}, @{N='Used%';E={[math]::Round(($_.Size-$_.SizeRemaining)/$_.Size*100,0)}} -AutoSize; Start-Sleep 30}\"",
+        "cmd:shell": true,
+        "cmd:runonstart": true,
+        "cmd:persistent": true
+      }
+    }
+  },
+
+  "docker-stats": {
+    "display:order": 20,
+    "icon": "brands@docker",
+    "color": "#2496ed",
+    "label": "docker",
+    "description": "Live Docker container stats (local)",
+    "blockdef": {
+      "meta": {
+        "view": "term",
+        "controller": "cmd",
+        "cmd": "docker stats --format \"table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.NetIO}}\"",
+        "cmd:shell": true,
+        "cmd:runonstart": true,
+        "cmd:persistent": true
+      }
+    }
+  },
+  "gpu-stats": {
+    "display:order": 21,
+    "icon": "microchip",
+    "color": "#76b900",
+    "label": "gpu-term",
+    "description": "NVIDIA GPU utilization terminal — refreshes every 5s (requires nvidia-smi)",
+    "blockdef": {
+      "meta": {
+        "view": "term",
+        "controller": "cmd",
+        "cmd": "nvidia-smi -l 5",
+        "cmd:shell": true,
+        "cmd:runonstart": true,
+        "cmd:persistent": true
+      }
+    }
+  },
+
+  "weather": {
+    "display:order": 30,
+    "icon": "cloud-sun",
+    "color": "#67e8f9",
+    "label": "weather",
+    "description": "Weather forecast via wttr.in",
+    "blockdef": {
+      "meta": {
+        "view": "web",
+        "url": "https://wttr.in",
+        "pinnedurl": "https://wttr.in",
+        "web:hidenav": true
+      }
+    }
+  },
+
+  "ssh-health": {
+    "display:order": 40,
+    "icon": "heart-pulse",
+    "color": "#10b981",
+    "label": "ssh-health",
+    "description": "Live SSH connection health monitor — polls all configured connections",
+    "blockdef": {
+      "meta": {
+        "view": "term",
+        "controller": "cmd",
+        "cmd": "D:/Dev/waveterm-widgets/scripts/ssh-health.ps1",
+        "cmd:shell": true,
+        "cmd:runonstart": true,
+        "cmd:persistent": true
+      }
+    }
+  },
+  "docker-manager": {
+    "display:order": 41,
+    "icon": "brands@docker",
+    "color": "#0db7ed",
+    "label": "dgx-docker",
+    "description": "Docker container manager for DGX1 — status, uptime, ports via SSH",
+    "blockdef": {
+      "meta": {
+        "view": "term",
+        "controller": "cmd",
+        "cmd": "C:/Users/Kratos/scoop/apps/git/current/bin/bash.exe D:/Dev/waveterm-widgets/scripts/docker-manager.sh",
+        "cmd:shell": true,
+        "cmd:runonstart": true,
+        "cmd:persistent": true,
+        "cmd:cwd": "D:/Dev/waveterm-widgets/scripts"
+      }
+    }
+  },
+  "cf-tunnels": {
+    "display:order": 42,
+    "icon": "cloud-arrow-up",
+    "color": "#f48120",
+    "label": "tunnels",
+    "description": "Cloudflare tunnel health dashboard — all tunnels on DGX1",
+    "blockdef": {
+      "meta": {
+        "view": "term",
+        "controller": "cmd",
+        "cmd": "C:/Users/Kratos/scoop/apps/git/current/bin/bash.exe D:/Dev/waveterm-widgets/scripts/cf-tunnel-status.sh",
+        "cmd:shell": true,
+        "cmd:runonstart": true,
+        "cmd:persistent": true,
+        "cmd:cwd": "D:/Dev/waveterm-widgets/scripts"
+      }
+    }
+  },
+  "mikrotik": {
+    "display:order": 43,
+    "icon": "router",
+    "color": "#293239",
+    "label": "mikrotik",
+    "description": "MikroTik Annex-4 dashboard — system, interfaces, firewall, WiFi",
+    "blockdef": {
+      "meta": {
+        "view": "term",
+        "controller": "cmd",
+        "cmd": "C:/Users/Kratos/scoop/apps/git/current/bin/bash.exe D:/Dev/waveterm-widgets/scripts/mikrotik-dashboard.sh",
+        "cmd:shell": true,
+        "cmd:runonstart": true,
+        "cmd:persistent": true,
+        "cmd:cwd": "D:/Dev/waveterm-widgets/scripts"
+      }
+    }
+  },
+  "git-sync": {
+    "display:order": 44,
+    "icon": "code-branch",
+    "color": "#f97316",
+    "label": "git-sync",
+    "description": "Multi-machine git sync status — local vs DGX1 repos",
+    "blockdef": {
+      "meta": {
+        "view": "term",
+        "controller": "cmd",
+        "cmd": "C:/Users/Kratos/scoop/apps/git/current/bin/bash.exe D:/Dev/waveterm-widgets/scripts/git-sync-status.sh",
+        "cmd:shell": true,
+        "cmd:runonstart": true,
+        "cmd:persistent": true,
+        "cmd:cwd": "D:/Dev/waveterm-widgets/scripts"
+      }
+    }
+  },
+  "quick-connect": {
+    "display:order": 45,
+    "icon": "bolt",
+    "color": "#eab308",
+    "label": "bookmarks",
+    "description": "Quick-connect SSH bookmarks — one-key access to common commands",
+    "blockdef": {
+      "meta": {
+        "view": "term",
+        "controller": "cmd",
+        "cmd": "C:/Users/Kratos/scoop/apps/git/current/bin/bash.exe D:/Dev/waveterm-widgets/scripts/quick-connect.sh",
+        "cmd:shell": true,
+        "cmd:runonstart": true,
+        "cmd:cwd": "D:/Dev/waveterm-widgets/scripts"
+      }
+    }
+  },
+
+  "machine-dashboard": {
+    "display:order": 46,
+    "display:hidden": true,
+    "icon": "server",
+    "color": "#10b981",
+    "label": "infra-term",
+    "description": "Terminal-based dashboard (fallback — use infra-dashboard web version instead)",
+    "blockdef": {
+      "meta": {
+        "view": "term",
+        "controller": "cmd",
+        "cmd": "D:/Dev/waveterm-apps/bin/wt-dashboard.exe",
+        "cmd:shell": false,
+        "cmd:runonstart": true,
+        "cmd:persistent": true,
+        "cmd:cwd": "D:/Dev/waveterm-apps"
+      }
+    }
+  },
+
+  "dashboard-server": {
+    "display:order": 47,
+    "icon": "server",
+    "color": "#06b6d4",
+    "label": "dash-srv",
+    "description": "Dashboard backend — starts server on :9800, then open 'dashboard' web widget",
+    "blockdef": {
+      "meta": {
+        "view": "term",
+        "controller": "cmd",
+        "cmd": "D:/Dev/waveterm-apps/bin/wt-dashboard-web.exe",
+        "cmd:shell": false,
+        "cmd:runonstart": true,
+        "cmd:persistent": true,
+        "cmd:cwd": "D:/Dev/waveterm-apps"
+      }
+    }
+  },
+  "infra-dashboard": {
+    "display:order": 48,
+    "icon": "chart-mixed",
+    "color": "#06b6d4",
+    "label": "dashboard",
+    "description": "Interactive infrastructure dashboard (needs dash-srv running)",
+    "blockdef": {
+      "meta": {
+        "view": "web",
+        "url": "http://localhost:9800",
+        "pinnedurl": "http://localhost:9800",
+        "web:hidenav": true
+      }
+    }
+  },
+
+  "docker-server": {
+    "display:order": 49,
+    "icon": "brands@docker",
+    "color": "#2496ed",
+    "label": "dock-srv",
+    "description": "Docker panel backend — starts server on :9801, then open 'docker-ui' web widget",
+    "blockdef": {
+      "meta": {
+        "view": "term",
+        "controller": "cmd",
+        "cmd": "D:/Dev/waveterm-apps/bin/wt-docker-panel-web.exe",
+        "cmd:shell": false,
+        "cmd:runonstart": true,
+        "cmd:persistent": true,
+        "cmd:cwd": "D:/Dev/waveterm-apps"
+      }
+    }
+  },
+  "docker-dashboard": {
+    "display:order": 50,
+    "icon": "brands@docker",
+    "color": "#0db7ed",
+    "label": "docker-ui",
+    "description": "Interactive Docker management (needs dock-srv running)",
+    "blockdef": {
+      "meta": {
+        "view": "web",
+        "url": "http://localhost:9801",
+        "pinnedurl": "http://localhost:9801",
+        "web:hidenav": true
+      }
+    }
+  },
+
+  "infra-monitor": {
+    "display:order": 12,
+    "icon": "gauge-high",
+    "color": "#06b6d4",
+    "label": "monitor",
+    "description": "TUI infrastructure monitor — multi-machine, keyboard-driven",
+    "blockdef": {
+      "meta": {
+        "view": "term",
+        "controller": "cmd",
+        "cmd": "D:/Dev/waveterm-apps/bin/wt-monitor.exe",
+        "cmd:shell": false,
+        "cmd:runonstart": true,
+        "cmd:persistent": true,
+        "cmd:cwd": "D:/Dev/waveterm-apps",
+        "cmd:env": { "TERM": "xterm-256color" }
+      }
+    }
+  },
+
+  "mikrotik-web": {
+    "display:order": 49,
+    "icon": "router",
+    "color": "#293239",
+    "label": "router-ui",
+    "description": "MikroTik WebFig management interface",
+    "blockdef": {
+      "meta": {
+        "view": "web",
+        "url": "http://10.1.1.1",
+        "pinnedurl": "http://10.1.1.1"
+      }
+    }
+  }
+}

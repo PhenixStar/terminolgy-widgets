@@ -1,0 +1,3 @@
+node_modules/
+.service-pids
+*.log
