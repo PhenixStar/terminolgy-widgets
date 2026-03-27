@@ -5,7 +5,7 @@
 # Usage: source /path/to/waveterm-aliases.sh
 # Then use: cc (picker), cbtop, clg, chtop, etc.
 
-_WAVETERM_SCRIPTS="${WAVETERM_WIDGETS_DIR:-D:/Dev/waveterm-widgets/scripts}"
+_WAVETERM_SCRIPTS="${WAVETERM_WIDGETS_DIR:-D:/Dev/terminolgy-widgets/scripts}"
 
 # Only define aliases when running inside WaveTerm
 if [[ -n "$WAVETERM" ]]; then

@@ -204,7 +204,7 @@
       "meta": {
         "view": "term",
         "controller": "cmd",
-        "cmd": "D:/Dev/waveterm-widgets/scripts/ssh-health.ps1",
+        "cmd": "D:/Dev/terminolgy-widgets/scripts/ssh-health.ps1",
         "cmd:shell": true,
         "cmd:runonstart": true,
         "cmd:persistent": true
@@ -221,11 +221,11 @@
       "meta": {
         "view": "term",
         "controller": "cmd",
-        "cmd": "C:/Users/Kratos/scoop/apps/git/current/bin/bash.exe D:/Dev/waveterm-widgets/scripts/docker-manager.sh",
+        "cmd": "C:/Users/Kratos/scoop/apps/git/current/bin/bash.exe D:/Dev/terminolgy-widgets/scripts/docker-manager.sh",
         "cmd:shell": true,
         "cmd:runonstart": true,
         "cmd:persistent": true,
-        "cmd:cwd": "D:/Dev/waveterm-widgets/scripts"
+        "cmd:cwd": "D:/Dev/terminolgy-widgets/scripts"
       }
     }
   },
@@ -239,11 +239,11 @@
       "meta": {
         "view": "term",
         "controller": "cmd",
-        "cmd": "C:/Users/Kratos/scoop/apps/git/current/bin/bash.exe D:/Dev/waveterm-widgets/scripts/cf-tunnel-status.sh",
+        "cmd": "C:/Users/Kratos/scoop/apps/git/current/bin/bash.exe D:/Dev/terminolgy-widgets/scripts/cf-tunnel-status.sh",
         "cmd:shell": true,
         "cmd:runonstart": true,
         "cmd:persistent": true,
-        "cmd:cwd": "D:/Dev/waveterm-widgets/scripts"
+        "cmd:cwd": "D:/Dev/terminolgy-widgets/scripts"
       }
     }
   },
@@ -257,11 +257,11 @@
       "meta": {
         "view": "term",
         "controller": "cmd",
-        "cmd": "C:/Users/Kratos/scoop/apps/git/current/bin/bash.exe D:/Dev/waveterm-widgets/scripts/mikrotik-dashboard.sh",
+        "cmd": "C:/Users/Kratos/scoop/apps/git/current/bin/bash.exe D:/Dev/terminolgy-widgets/scripts/mikrotik-dashboard.sh",
         "cmd:shell": true,
         "cmd:runonstart": true,
         "cmd:persistent": true,
-        "cmd:cwd": "D:/Dev/waveterm-widgets/scripts"
+        "cmd:cwd": "D:/Dev/terminolgy-widgets/scripts"
       }
     }
   },
@@ -275,11 +275,11 @@
       "meta": {
         "view": "term",
         "controller": "cmd",
-        "cmd": "C:/Users/Kratos/scoop/apps/git/current/bin/bash.exe D:/Dev/waveterm-widgets/scripts/git-sync-status.sh",
+        "cmd": "C:/Users/Kratos/scoop/apps/git/current/bin/bash.exe D:/Dev/terminolgy-widgets/scripts/git-sync-status.sh",
         "cmd:shell": true,
         "cmd:runonstart": true,
         "cmd:persistent": true,
-        "cmd:cwd": "D:/Dev/waveterm-widgets/scripts"
+        "cmd:cwd": "D:/Dev/terminolgy-widgets/scripts"
       }
     }
   },
@@ -293,10 +293,10 @@
       "meta": {
         "view": "term",
         "controller": "cmd",
-        "cmd": "C:/Users/Kratos/scoop/apps/git/current/bin/bash.exe D:/Dev/waveterm-widgets/scripts/quick-connect.sh",
+        "cmd": "C:/Users/Kratos/scoop/apps/git/current/bin/bash.exe D:/Dev/terminolgy-widgets/scripts/quick-connect.sh",
         "cmd:shell": true,
         "cmd:runonstart": true,
-        "cmd:cwd": "D:/Dev/waveterm-widgets/scripts"
+        "cmd:cwd": "D:/Dev/terminolgy-widgets/scripts"
       }
     }
   },
@@ -312,11 +312,11 @@
       "meta": {
         "view": "term",
         "controller": "cmd",
-        "cmd": "D:/Dev/waveterm-apps/bin/wt-dashboard.exe",
+        "cmd": "D:/Dev/terminolgy-apps/bin/wt-dashboard.exe",
         "cmd:shell": false,
         "cmd:runonstart": true,
         "cmd:persistent": true,
-        "cmd:cwd": "D:/Dev/waveterm-apps"
+        "cmd:cwd": "D:/Dev/terminolgy-apps"
       }
     }
   },
@@ -331,11 +331,11 @@
       "meta": {
         "view": "term",
         "controller": "cmd",
-        "cmd": "D:/Dev/waveterm-apps/bin/wt-dashboard-web.exe",
+        "cmd": "D:/Dev/terminolgy-apps/bin/wt-dashboard-web.exe",
         "cmd:shell": false,
         "cmd:runonstart": true,
         "cmd:persistent": true,
-        "cmd:cwd": "D:/Dev/waveterm-apps"
+        "cmd:cwd": "D:/Dev/terminolgy-apps"
       }
     }
   },
@@ -365,11 +365,11 @@
       "meta": {
         "view": "term",
         "controller": "cmd",
-        "cmd": "D:/Dev/waveterm-apps/bin/wt-docker-panel-web.exe",
+        "cmd": "D:/Dev/terminolgy-apps/bin/wt-docker-panel-web.exe",
         "cmd:shell": false,
         "cmd:runonstart": true,
         "cmd:persistent": true,
-        "cmd:cwd": "D:/Dev/waveterm-apps"
+        "cmd:cwd": "D:/Dev/terminolgy-apps"
       }
     }
   },
@@ -399,11 +399,11 @@
       "meta": {
         "view": "term",
         "controller": "cmd",
-        "cmd": "D:/Dev/waveterm-apps/bin/wt-monitor.exe",
+        "cmd": "D:/Dev/terminolgy-apps/bin/wt-monitor.exe",
         "cmd:shell": false,
         "cmd:runonstart": true,
         "cmd:persistent": true,
-        "cmd:cwd": "D:/Dev/waveterm-apps",
+        "cmd:cwd": "D:/Dev/terminolgy-apps",
         "cmd:env": { "TERM": "xterm-256color" }
       }
     }
